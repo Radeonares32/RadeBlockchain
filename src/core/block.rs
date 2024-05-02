@@ -35,7 +35,9 @@ impl Block {
     pub fn serialize(tx:Block) -> Vec<u8> {
         let mut tx_hex = "";
         tx_hex += Self::pad_start(tx.recipient, 64, b'0');
-        tx_hex = Self::pad_start(tx.amount, 16, b'0');
+        tx_hex = Self::pad_start(tx.amount, 8, b'0');
+        tx_hex += Self::pad_start(tx.gas, 8, b'0');
+        tx_hex += Self::pad_start(tx.nonce, 8, b'0');
         
         
         
